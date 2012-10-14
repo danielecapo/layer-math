@@ -81,15 +81,28 @@ def operation_space (font, glyphs):
 
     return (summer, scaler)
 
-def append_to_font (font, glyphs, ext):
-    for glyph in glyphs:
-        new_glyph = font.createChar(-1, glyph[0] + "." + ext)
-        nl = fontforge.layer()
-        for c in glyph[1]:
-            nl += c
-        new_glyph.layers[1] = nl
-
+def design_space (font, glyphs, layers):
+    s, m = operation_space (font, glyphs)
+    def get_by_coord (*coord):
+        scaled = map (lambda l, crd: apply (m, [l]+crd), layers, coord)
+        return apply (s, scaled)
+    return get_by_coord
         
+        
+    
+
+def add_glyph (font, glyph, ext):
+    new_glyph = font.createChar(-1, glyph[0] + "." + ext)
+    nl = fontforge.layer()
+    for c in glyph[1]:
+        nl += c
+    new_glyph.layers[1] = nl
+
+def add_glyphs (font, glyphs, ext):
+    for glyph in glyphs:
+        add_glyph (font, glyph, ext)
+
+f= fontforge.activeFont()
 add, mul = operation_space (f, ['o'])
-append_to_font (f, add(add('width', 'weight'), 'square'), "wbs")
-append_to_font (f, add(add(mul('width', 0.3), mul('weight', 0.2, 2)), mul ('square', 0.3)), "csb")
+add_glyphs (f, add(add('width', 'weight'), 'square'), "wbs")
+add_glyphs (f, add(add(mul('width', 0.3), mul('weight', 0.2, 2)), mul ('square', 0.3)), "csb")
