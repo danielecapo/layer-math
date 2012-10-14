@@ -102,7 +102,3 @@ def add_glyphs (font, glyphs, ext):
     for glyph in glyphs:
         add_glyph (font, glyph, ext)
 
-f= fontforge.activeFont()
-add, mul = operation_space (f, ['o'])
-add_glyphs (f, add(add('width', 'weight'), 'square'), "wbs")
-add_glyphs (f, add(add(mul('width', 0.3), mul('weight', 0.2, 2)), mul ('square', 0.3)), "csb")
