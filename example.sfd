@@ -1,0 +1,217 @@
+SplineFontDB: 3.0
+FontName: exp1
+FullName: exp1
+FamilyName: exp1
+Weight: Medium
+Copyright: Created by daniele with FontForge 2.0 (http://fontforge.sf.net)
+UComments: "2012-10-13: Created." 
+Version: 001.000
+ItalicAngle: 0
+UnderlinePosition: -100
+UnderlineWidth: 50
+Ascent: 800
+Descent: 200
+LayerCount: 5
+Layer: 0 0 "Back"  1
+Layer: 1 0 "Fore"  0
+Layer: 2 0 "weight"  1
+Layer: 3 0 "width"  1
+Layer: 4 0 "square"  1
+XUID: [1021 565 1224115242 6104337]
+OS2Version: 0
+OS2_WeightWidthSlopeOnly: 0
+OS2_UseTypoMetrics: 1
+CreationTime: 1350119115
+ModificationTime: 1350226768
+OS2TypoAscent: 0
+OS2TypoAOffset: 1
+OS2TypoDescent: 0
+OS2TypoDOffset: 1
+OS2TypoLinegap: 0
+OS2WinAscent: 0
+OS2WinAOffset: 1
+OS2WinDescent: 0
+OS2WinDOffset: 1
+HheadAscent: 0
+HheadAOffset: 1
+HheadDescent: 0
+HheadDOffset: 1
+OS2Vendor: 'PfEd'
+MarkAttachClasses: 1
+DEI: 91125
+Encoding: ISO8859-1
+UnicodeInterp: none
+NameList: Adobe Glyph List
+DisplaySize: -48
+AntiAlias: 1
+FitToEm: 1
+WinInfo: 34 17 14
+BeginPrivate: 0
+EndPrivate
+BeginChars: 260 2
+
+StartChar: o
+Encoding: 111 111 0
+Width: 1000
+VWidth: 0
+Flags: HO
+LayerCount: 5
+Fore
+SplineSet
+250 392 m 4
+ 250 209 351.758389262 60 478 60 c 4
+ 604.371237458 60 707 209 707 392 c 4
+ 707 584.951661631 604.371237458 741 478 741 c 4
+ 351.758389262 741 250 584.951661631 250 392 c 4
+120 392 m 4
+ 120 618.123867069 279.77852349 801 478 801 c 4
+ 676.110367893 801 837 618.123867069 837 392 c 4
+ 837 175.927710843 676.110367893 0 478 0 c 4
+ 279.77852349 0 120 175.927710843 120 392 c 4
+EndSplineSet
+Layer: 2
+SplineSet
+370 392 m 0
+ 370 231.048192771 418.201342282 100 478 100 c 0
+ 538.150501672 100 587 231.048192771 587 392 c 0
+ 587 562.836858006 538.150501672 701 478 701 c 0
+ 418.201342282 701 370 562.836858006 370 392 c 0
+60 392 m 0
+ 60 618.123867069 246.55704698 801 478 801 c 0
+ 709.220735786 801 897 618.123867069 897 392 c 0
+ 897 175.927710843 709.220735786 0 478 0 c 0
+ 246.55704698 0 60 175.927710843 60 392 c 0
+EndSplineSet
+Layer: 3
+SplineSet
+110 392 m 0
+ 110 209 274.241610738 60 478 60 c 0
+ 681.628762542 60 847 209 847 392 c 0
+ 847 584.951661631 681.628762542 741 478 741 c 0
+ 274.241610738 741 110 584.951661631 110 392 c 0
+-20 392 m 0
+ -20 618.123867069 202.261744966 801 478 801 c 0
+ 753.367892977 801 977 618.123867069 977 392 c 0
+ 977 175.927710843 753.367892977 0 478 0 c 0
+ 202.261744966 0 -20 175.927710843 -20 392 c 0
+EndSplineSet
+Layer: 4
+SplineSet
+250 392 m 0
+ 250 60 250 60 478 60 c 0
+ 707 60 707 60 707 392 c 0
+ 707 741 707 741 478 741 c 0
+ 250 741 250 741 250 392 c 0
+120 392 m 0
+ 120 801 120 801 478 801 c 0
+ 837 801 837 801 837 392 c 0
+ 837 0 837 0 478 0 c 0
+ 120 0 120 0 120 392 c 0
+EndSplineSet
+EndChar
+
+StartChar: n
+Encoding: 110 110 1
+Width: 1000
+VWidth: 0
+Flags: HWO
+LayerCount: 5
+UndoRedoHistory
+Layer: 1
+Undoes
+EndUndoes
+Redoes
+EndRedoes
+EndUndoRedoHistory
+Fore
+SplineSet
+676 528 m 2
+ 676 651 610 715 488 715 c 0
+ 378 715 284 618 284 618 c 1
+ 284 666 l 1
+ 284 666 395.608391608 801 550 801 c 0
+ 696 801 792 727 792 562 c 2
+ 792 1 l 1
+ 676 1 l 1
+ 676 528 l 2
+176 786 m 1
+ 292 786 l 1
+ 292 1 l 1
+ 176 1 l 1
+ 176 786 l 1
+EndSplineSet
+UndoRedoHistory
+Layer: 2
+Undoes
+EndUndoes
+Redoes
+EndRedoes
+EndUndoRedoHistory
+Layer: 2
+SplineSet
+556 508 m 6
+ 556 591.534759358 532.127659574 635 488 635 c 4
+ 442.705882353 635 404 608 404 608 c 5
+ 404 706 l 5
+ 404 706 498.825174825 801 630 801 c 4
+ 763.933884298 801 852 727 852 562 c 6
+ 852 1 l 5
+ 556 1 l 5
+ 556 508 l 6
+116 786 m 5
+ 412 786 l 5
+ 412 1 l 5
+ 116 1 l 5
+ 116 786 l 5
+EndSplineSet
+UndoRedoHistory
+Layer: 3
+Undoes
+EndUndoes
+Redoes
+EndRedoes
+EndUndoRedoHistory
+Layer: 3
+SplineSet
+746 528 m 2
+ 746 655.604278075 669.117021277 722 527 722 c 0
+ 358.225490196 722 214 598 214 598 c 1
+ 214 640 l 5
+ 214 640 371.762237762 801 590 801 c 0
+ 754.099173554 801 862 727 862 562 c 2
+ 862 1 l 1
+ 746 1 l 1
+ 746 528 l 2
+106 786 m 1
+ 222 786 l 1
+ 222 1 l 1
+ 106 1 l 1
+ 106 786 l 1
+EndSplineSet
+UndoRedoHistory
+Layer: 4
+Undoes
+EndUndoes
+Redoes
+EndRedoes
+EndUndoRedoHistory
+Layer: 4
+SplineSet
+676 528 m 2
+ 676 715 676 715 488 715 c 0
+ 379 715 327 686 284 618 c 1
+ 284 666 l 1
+ 349 762 401 801 550 801 c 0
+ 792 801 792 801 792 562 c 2
+ 792 1 l 1
+ 676 1 l 1
+ 676 528 l 2
+176 786 m 1
+ 292 786 l 1
+ 292 1 l 1
+ 176 1 l 1
+ 176 786 l 1
+EndSplineSet
+EndChar
+EndChars
+EndSplineFont
