@@ -1,7 +1,7 @@
 import fontforge
 import psMat
 
-def layer_contours (font, glyph, layer):
+def _layer_contours (font, glyph, layer):
     return font[glyph].layers[layer]
 
 # map (lambda c: c, font[glyph].layers[layer])
@@ -10,11 +10,11 @@ def layer_contours (font, glyph, layer):
 def selector (font, glyphs):
     def get_layer (layer):
         return map (lambda glyph:\
-                    [glyph, layer_contours (font, glyph, layer)],\
+                    [glyph, _layer_contours (font, glyph, layer)],\
                     glyphs)
     return get_layer
 
-def sum_contours (c1, c2, *cs):
+def _sum_contours (c1, c2, *cs):
     def inner_sum (c1, c2):
         c = c1.dup()
         for i in range(len(c)):
@@ -22,15 +22,15 @@ def sum_contours (c1, c2, *cs):
         return c
     return reduce (inner_sum,  (c1, c2) + cs)
 
-def scale_contour (c1, x, y=None):
+def _scale_contour (c1, x, y=None):
     if y==None:
         y = x
     return c1.dup().transform(psMat.scale(x, y))
 
 
-def sum_glyphs (l1, l2, *ls):
+def _sum_glyphs (l1, l2, *ls):
     def inner_sum (l1, l2):
-        return map (sum_contours, l1, l2)
+        return map (_sum_contours, l1, l2)
     return reduce (inner_sum, (l1, l2) + ls)
     # l = l1.dup()
     # for i in range (len(l)):
@@ -38,8 +38,8 @@ def sum_glyphs (l1, l2, *ls):
     # return l
 #    
 
-def scale_glyph (l1, x, y=None):
-    return map (lambda c: scale_contour(c, x, y), l1) 
+def _scale_glyph (l1, x, y=None):
+    return map (lambda c: _scale_contour(c, x, y), l1) 
     # l = l1.dup()
     # for i in range (len(l)):
     #     l[i] = scale_contour (l1[i], x, y)
@@ -48,15 +48,15 @@ def scale_glyph (l1, x, y=None):
     
 def sum (l1, l2, *ls):
     def inner_sum (l1, l2):
-        return map (lambda l1, l2: [l1[0], sum_glyphs(l1[1], l2[1])], l1, l2)
+        return map (lambda l1, l2: [l1[0], _sum_glyphs(l1[1], l2[1])], l1, l2)
     return reduce (inner_sum, (l1, l2) + ls)
 
 def scale (l1, x, y=None):
-    return map (lambda l: [l[0], scale_glyph(l[1], x, y)], l1)
+    return map (lambda l: [l[0], _scale_glyph(l[1], x, y)], l1)
 
-def operation_space (font, glyphs):
+def operation_space (font, glyphs, origin = 1):
     s = selector (font, glyphs)
-    o = s(1)
+    o = s(origin)
     minus_o = scale (o, -1)
 
     def summer (l1, l2, *ls):
@@ -81,15 +81,13 @@ def operation_space (font, glyphs):
 
     return (summer, scaler)
 
-def design_space (font, glyphs, layers):
-    s, m = operation_space (font, glyphs)
+def design_space (font, glyphs, layers, origin = 1):
+    s, m = operation_space (font, glyphs, origin)
     def get_by_coord (*coord):
         scaled = map (lambda l, crd: apply (m, [l]+crd), layers, coord)
         return apply (s, scaled)
     return get_by_coord
         
-        
-    
 
 def add_glyph (font, glyph, ext):
     new_glyph = font.createChar(-1, glyph[0] + "." + ext)
