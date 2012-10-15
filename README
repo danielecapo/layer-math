@@ -3,39 +3,50 @@ Layer Math
 A FonForge script for complex interpolations.
 
 Usage
-The idea is to use layers as 'masters', so you will draw different version of each glyph in separate layers.
+Move layermath.py in a place where python can see it.
+To see an example, open example.sfd in FontForge and run example.py.
+
+The idea is to use 'glyph math'(see http://robofab.org/howto/glyphmath.html)  on layers instead of glyphs. Basically we will use layers as 'masters', so you will draw different version of each glyph in separate layers.
 The functions defined here can be used to permorm different kind of operations.
+
+
 
 Sum and Scale
 
 You can perform sum and scale operations on layers for each glyph.
+
 First you need to define a selector
 
-s = selector (font, ['a', 'b', 'c'])
+import fontforge
+import layermath
+f = fontforge.activeFont()
+s = layermath.selector (font, ['a', 'b', 'c'])
 
 that is used to obtain the contour in a given layer for the given glyphs. Then you can call sum between layers and scale:
 
-sum (s('layer1'), s('layer2'), s('layer3'))
+layermath.sum (s('layer1'), s('layer2'), s('layer3'))
 
-this will sum point by point the contour in layer1, layer2, and layer3, for each glyph (in this case a, b and c).
+this will sum point by point the contour in layer1, layer2, and layer3, for each glyph (in this case a, b and c). You can also scale contours:
 
-scale (s('layer1'), 2, 1.2)
+layermath.scale (s('layer1'), 2, 1.2)
 
 This will scale the contours in layer1 by 2 in x direction and by 1.2 in y direction, for each glyph (again, a, b and c)
 
+
+
 Design spaces
 
-if you want to make an interpolation between the foreground layer and a layer bold where you store outlines for a bold version of the glyphs, you can write:
+if you want to make an interpolation between the foreground layer and a layer called 'bold' where you store outlines for a bold version of the glyphs, you can write:
 
-sum (s(1), scale (sum (s('bold'), scale (s(1), -1)), 0.5))
+layermath.sum (s(1), layermath.scale (layermath.sum (s('bold'), layermath.scale (s(1), -1)), 0.5))
 
-One can find useful to have a 'space' where the operation sum and scale are performed using the foreground layer as the origin; in a similar space you can rewrite the previous operation is a simpler way:
+One can find useful to have a 'space' where the operation sum and scale are performed using a layer as the origin; in a similar space you can rewrite the previous operation:
 
 myscale (s('bold'), 0.5)
 
-The function operation_space can be used for this kind of things, you give a font and a list of glyphs, and it returns two functions: a 'custom' sum and a 'custom' scale. These new operations do not need a selector, you can call them usign the name of the layer: 
+The function operation_space can be used for this kind of things, you give a font, a list of glyphs and an origin layer (defaults to the foreground layer), and it returns two functions: a 'custom' sum and a 'custom' scale. These new operations do not need a selector, you can call them using the name of the layer: 
 
-mysum, myscale (font, ['a', 'b', 'c'])
+mysum, myscale = layermath.operation_space (font, ['a', 'b', 'c'])
 
 myscale ('bold', 0.5)
 
@@ -59,15 +70,19 @@ design spaces enable you to treat x and y coordinate separately:
 
 space ([1, 0.5], [1])
 
-this is equivalent to: 
+that is equivalent to: 
 
 mysum (myscale ('bold, 1, 0.5), 'extended')
 
 New glyphs
 
-After an operation you will probably want to obatin new glyphs:
+After an operation you will probably want to write the new glyphs:
 
 add_glyphs (font, mysum ('bold', 'extended'), "boldext")
 
-and the new bold extended glyphs will be added with names a.boldext b.boldext, c.boldext.
+and the new bold extended glyphs will be added with names a.boldext, b.boldext, c.boldext.
+
+Limitations
+The script doesn't check if the layers are actually interpolable, if not it will terminate with an error.
+Sidebearings are not considered.
 

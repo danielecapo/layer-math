@@ -22,7 +22,7 @@ OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 1
 CreationTime: 1350119115
-ModificationTime: 1350226768
+ModificationTime: 1350289232
 OS2TypoAscent: 0
 OS2TypoAOffset: 1
 OS2TypoDescent: 0
@@ -48,13 +48,13 @@ FitToEm: 1
 WinInfo: 34 17 14
 BeginPrivate: 0
 EndPrivate
-BeginChars: 260 2
+BeginChars: 264 2
 
 StartChar: o
 Encoding: 111 111 0
 Width: 1000
 VWidth: 0
-Flags: HO
+Flags: H
 LayerCount: 5
 Fore
 SplineSet
@@ -114,15 +114,8 @@ StartChar: n
 Encoding: 110 110 1
 Width: 1000
 VWidth: 0
-Flags: HWO
+Flags: HW
 LayerCount: 5
-UndoRedoHistory
-Layer: 1
-Undoes
-EndUndoes
-Redoes
-EndRedoes
-EndUndoRedoHistory
 Fore
 SplineSet
 676 528 m 2
@@ -140,13 +133,6 @@ SplineSet
  176 1 l 1
  176 786 l 1
 EndSplineSet
-UndoRedoHistory
-Layer: 2
-Undoes
-EndUndoes
-Redoes
-EndRedoes
-EndUndoRedoHistory
 Layer: 2
 SplineSet
 556 508 m 6
@@ -164,13 +150,6 @@ SplineSet
  116 1 l 5
  116 786 l 5
 EndSplineSet
-UndoRedoHistory
-Layer: 3
-Undoes
-EndUndoes
-Redoes
-EndRedoes
-EndUndoRedoHistory
 Layer: 3
 SplineSet
 746 528 m 2
@@ -188,13 +167,6 @@ SplineSet
  106 1 l 1
  106 786 l 1
 EndSplineSet
-UndoRedoHistory
-Layer: 4
-Undoes
-EndUndoes
-Redoes
-EndRedoes
-EndUndoRedoHistory
 Layer: 4
 SplineSet
 676 528 m 2
