@@ -3,6 +3,7 @@ Layer Math
 A FonForge script for complex interpolations.
 
 Usage
+
 Move layermath.py in a place where python can see it.
 To see an example, open example.sfd in FontForge and run example.py.
 
@@ -86,3 +87,6 @@ Limitations
 The script doesn't check if the layers are actually interpolable, if not it will terminate with an error.
 Sidebearings are not considered.
 
+
+Note
+Sorry for my *not-so-good* english.
